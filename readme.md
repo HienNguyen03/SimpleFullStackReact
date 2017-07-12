@@ -1,0 +1,1 @@
+Boilerplate server authentication API
