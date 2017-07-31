@@ -1,9 +1,11 @@
 //Main starting point of the application
 const bodyParser = require('body-parser');
+const cors = require('cors');
 const express = require('express');
 const http = require('http');
 const mongoose = require('mongoose');
-const morgan = require('morgan')
+const morgan = require('morgan');
+
 
 const app = express();
 const router = require('./router');
@@ -13,6 +15,7 @@ mongoose.connect('mongodb://localhost:auth/auth');
 
 //App setup
 app.use(morgan('combined')); //Logging http request
+app.use(cors());
 app.use(bodyParser.json({type: '*/*'})); //parsing middleware
 router(app);
 
